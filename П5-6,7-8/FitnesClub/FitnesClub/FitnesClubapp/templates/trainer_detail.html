@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Тренер: {{ trainer.full_name }}</h1>
+<p>Специализация: {{ trainer.specialization_ID.name }}</p>
+
+<h3>Занятия:</h3>
+<ul>
+    <!-- выводим занятия связь через фк -->
+    {% for ex in trainer.exercise_set.all %}
+        <li>{{ ex.name }} ({{ ex.weekday_ID.name }} в {{ ex.timeExercise }})</li>
+    {% empty %}
+        <li>Нет занятий</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'fitness:client_list' %}" class="btn btn-secondary mt-3">Назад</a>
+{% endblock %}

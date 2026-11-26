@@ -1,0 +1,10 @@
+<div class="card mt-4">
+    <div class="card-header">Наши тренеры</div>
+    <ul class="list-group list-group-flush">
+        {% for t in trainers %}
+            <li class="list-group-item">
+                <a href="{% url 'fitness:trainer_detail' t.pk %}">{{ t.full_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
